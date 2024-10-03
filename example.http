@@ -1,0 +1,2 @@
+GET http://localhost:3000/api/users/2  HTTP/1.1
+Authorization:hJAsknw-L198sAJD-l3kasx
