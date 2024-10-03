@@ -1,5 +1,6 @@
 import express from 'express'
 import users from '../data/users.json' with {type: "json"}
+import posts from '../data/posts.json' with {type:"json"}
 import error from '../utilities/error.js';
 
 const userRouter = express.Router();
@@ -30,11 +31,13 @@ userRouter
         email: req.body.email,
       };
 
-      console.log(user,users)
+     
       users.push(user);
       res.json(users[users.length - 1]);
     } else next(error(400, "Insufficient Data"));
   });
+
+
 
 userRouter
   .route("/:id")
@@ -81,5 +84,32 @@ userRouter
     if (user) res.json(user);
     else next();
   });
+
+
+  userRouter.route("/:id/posts")
+  .get((req, res, next) => {
+
+    const userPosts = posts.filter((u) => u.userId == req.params.id);
+    const links = [
+      {
+        href: `/${req.params.id}`,
+        rel: "",
+        type: "PATCH",
+      },
+      {
+        href: `/${req.params.id}`,
+        rel: "",
+        type: "DELETE",
+      },
+    ];
+
+    if (userPosts) res.json({ userPosts, links });
+    else next();
+  
+  })
+
+
+
+
 
 export default userRouter

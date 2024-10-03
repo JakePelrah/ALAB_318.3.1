@@ -1,5 +1,5 @@
 import express from 'express'
-import posts from '../data/posts.json' with {type:"json"}
+import posts from '../data/posts.json' with {type: "json"}
 import error from "../utilities/error.js";
 
 const postRouter = express.Router();
@@ -7,6 +7,7 @@ const postRouter = express.Router();
 postRouter
   .route("/")
   .get((req, res) => {
+
     const links = [
       {
         href: "posts/:id",
@@ -14,6 +15,13 @@ postRouter
         type: "GET",
       },
     ];
+
+    if (req.query) {
+      console.log('here', req.query)
+      let userPosts = posts.filter((u) => u.userId == req.query.userId);
+      res.json({ userPosts, links });
+      return
+    }
 
     res.json({ posts, links });
   })
@@ -76,5 +84,8 @@ postRouter
     if (post) res.json(post);
     else next();
   });
+
+
+
 
 export default postRouter

@@ -1,7 +1,8 @@
 import express from 'express'
+import commentRouter from './routes/comments.js';
 import userRouter from './routes/user.js';
-import error from "./utilities/error.js";
 import postRouter from './routes/post.js';
+import error from "./utilities/error.js";
 
 const app = express();
 const port = 3000;
@@ -49,6 +50,7 @@ app.use("/api", function (req, res, next) {
 
 
 // Use our Routes
+app.use("/api/comments", commentRouter);
 app.use("/api/users", userRouter);
 app.use("/api/posts", postRouter);
 

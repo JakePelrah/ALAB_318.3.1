@@ -31,3 +31,46 @@
 #         "title": "iusto eius quod necessitatibus culpa ea",
 #         "content": "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores"
 # }
+
+
+
+
+# ALAB 318.3.1
+
+# GET  http://localhost:3000/api/users/1/posts HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+
+# GET  http://localhost:3000/api/posts?userId=1 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET  http://localhost:3000/api/comments HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# POST  http://localhost:3000/api/comments HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+# content-type: application/json
+
+# {
+#         "id": 99,
+#         "userId": 1,
+#         "postId":2323,
+#         "comment":"New comment!"
+# }
+
+
+# GET  http://localhost:3000/api/comments/1 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# PATCH   http://localhost:3000/api/comments/1 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+# content-type: application/json
+
+# {
+#     "id":1,
+#     "comment":"WOOOO"
+# }
+
+DELETE http://localhost:3000/api/comments/1 HTTP/1.1
+Authorization:hJAsknw-L198sAJD-l3kasx
+
