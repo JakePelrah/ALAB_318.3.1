@@ -24,52 +24,52 @@ commentRouter
     });
 
 commentRouter
-  .route("/:id")
-  .get((req, res, next) => {
-    console.log(req.params)
-    const userComments = comments.filter((p) => p.userId == req.params.id);
+    .route("/:id")
+    .get((req, res, next) => {
+        console.log(req.params)
+        const userComments = comments.filter((p) => p.userId == req.params.id);
 
-    const links = [
-      {
-        href: `/${req.params.id}`,
-        rel: "",
-        type: "PATCH",
-      },
-      {
-        href: `/${req.params.id}`,
-        rel: "",
-        type: "DELETE",
-      },
-    ];
+        const links = [
+            {
+                href: `/${req.params.id}`,
+                rel: "",
+                type: "PATCH",
+            },
+            {
+                href: `/${req.params.id}`,
+                rel: "",
+                type: "DELETE",
+            },
+        ];
 
-    if (userComments) res.json({ userComments, links });
-    else next();
-  })
-  .patch((req, res, next) => {
-    const comment = comments.find((p, i) => {
-      if (p.id == req.params.id) {
-        console.log(req.body)
-        for (const key in req.body) {
-          comments[i][key] = req.body[key];
-        }
-        return true;
-      }
+        if (userComments) res.json({ userComments, links });
+        else next();
+    })
+    .patch((req, res, next) => {
+        const comment = comments.find((p, i) => {
+            if (p.id == req.params.id) {
+                console.log(req.body)
+                for (const key in req.body) {
+                    comments[i][key] = req.body[key];
+                }
+                return true;
+            }
+        });
+
+        if (comment) res.json(comment);
+        else next();
+    })
+    .delete((req, res, next) => {
+        const comment = comments.find((p, i) => {
+            if (p.id == req.params.id) {
+                comments.splice(i, 1);
+                return true;
+            }
+        });
+
+        if (comment) res.json(comment);
+        else next();
     });
-
-    if (comment) res.json(comment);
-    else next();
-  })
-  .delete((req, res, next) => {
-    const comment = comments.find((p, i) => {
-      if (p.id == req.params.id) {
-        comments.splice(i, 1);
-        return true;
-      }
-    });
-
-    if (comment) res.json(comment);
-    else next();
-  });
 
 
 
