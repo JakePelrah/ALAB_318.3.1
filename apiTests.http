@@ -71,6 +71,6 @@
 #     "comment":"WOOOO"
 # }
 
-DELETE http://localhost:3000/api/comments/1 HTTP/1.1
-Authorization:hJAsknw-L198sAJD-l3kasx
+# DELETE http://localhost:3000/api/comments/1 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
 
