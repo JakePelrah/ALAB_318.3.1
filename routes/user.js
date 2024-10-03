@@ -30,6 +30,7 @@ userRouter
         email: req.body.email,
       };
 
+      console.log(user,users)
       users.push(user);
       res.json(users[users.length - 1]);
     } else next(error(400, "Insufficient Data"));

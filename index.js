@@ -7,7 +7,6 @@ const app = express();
 const port = 3000;
 
 // Parsing Middleware
-// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Logging Middlewaare

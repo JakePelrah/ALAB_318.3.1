@@ -1,2 +1,33 @@
-GET http://localhost:3000/api/users/2  HTTP/1.1
-Authorization:hJAsknw-L198sAJD-l3kasx
+# GET http://localhost:3000/api/users HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET http://localhost:3000/api/users/2  HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# POST  http://localhost:3000/api/users/ HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+# content-type: application/json
+
+# {
+#         "id": 6,
+#         "name": "Jacob",
+#         "username": "jpelrah",
+#         "email": "pelrahjsp@gmail.com"
+# }
+
+# GET http://localhost:3000/api/posts/ HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET http://localhost:3000/api/posts/1 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# POST  http://localhost:3000/api/posts/ HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+# content-type: application/json
+
+# {
+#         "id": 99,
+#         "userId": 4,
+#         "title": "iusto eius quod necessitatibus culpa ea",
+#         "content": "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores"
+# }
