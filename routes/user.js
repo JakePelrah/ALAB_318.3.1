@@ -2,6 +2,7 @@ import express from 'express'
 import users from '../data/users.json' with {type: "json"}
 import posts from '../data/posts.json' with {type:"json"}
 import error from '../utilities/error.js';
+import comments from '../data/comments.json' with {type: "json"}
 
 const userRouter = express.Router();
 
@@ -108,6 +109,24 @@ userRouter
   
   })
 
+  userRouter
+  .route("/:id/comments")
+  .get((req, res, next) => {
+
+    const { id } = req.params
+    
+    if (req.query) {
+      const { postId } = req.query
+      console.log(postId, id)
+      let userComments = comments.filter((u) => u.id == postId && u.userId == id);
+      res.json({ userComments });
+      return
+    }
+
+
+    const userComments = comments.filter((u) => u.userId == id);
+    res.json({ userComments });
+  })
 
 
 

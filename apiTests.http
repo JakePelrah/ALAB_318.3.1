@@ -74,3 +74,22 @@
 # DELETE http://localhost:3000/api/comments/1 HTTP/1.1
 # Authorization:hJAsknw-L198sAJD-l3kasx
 
+# GET  http://localhost:3000/api/comments?userId=2 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET  http://localhost:3000/api/comments?postId=3 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET  http://localhost:3000/api/posts/3/comments HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET  http://localhost:3000/api/users/2/comments HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+# GET  http://localhost:3000/api/posts/4/comments?userId=19 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+
+
+# GET  http://localhost:3000/api/users/19/comments?postId=1 HTTP/1.1
+# Authorization:hJAsknw-L198sAJD-l3kasx
+

@@ -1,4 +1,6 @@
 import express from 'express'
+import comments from '../data/comments.json' with {type: "json"}
+
 import posts from '../data/posts.json' with {type: "json"}
 import error from "../utilities/error.js";
 
@@ -17,7 +19,6 @@ postRouter
     ];
 
     if (req.query) {
-      console.log('here', req.query)
       let userPosts = posts.filter((u) => u.userId == req.query.userId);
       res.json({ userPosts, links });
       return
@@ -85,6 +86,21 @@ postRouter
     else next();
   });
 
+postRouter
+  .route("/:id/comments")
+  .get((req, res, next) => {
+    const { id } = req.params
+
+    if (req.query) {
+      const { userId } = req.query
+      let userComments = comments.filter((u) => u.userId == userId && u.id == id);
+      res.json({ userComments });
+      return
+    }
+
+    const userComments = comments.filter((u) => u.id == id);
+    res.json({ userComments });
+  })
 
 
 

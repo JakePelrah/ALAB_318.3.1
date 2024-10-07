@@ -7,6 +7,18 @@ const commentRouter = express.Router();
 commentRouter
     .route("/")
     .get((req, res) => {
+        const { userId, postId } = req.query
+
+        if (userId) {
+            const userComments = comments.filter((u) => u.userId == userId);
+            res.json({ userComments });
+            return
+        }
+        else if (postId) {
+            const userComments = comments.filter((u) => u.id == postId);
+            res.json({ userComments });
+            return
+        }
         res.json({ comments });
     })
     .post((req, res, next) => {
@@ -48,7 +60,6 @@ commentRouter
     .patch((req, res, next) => {
         const comment = comments.find((p, i) => {
             if (p.id == req.params.id) {
-                console.log(req.body)
                 for (const key in req.body) {
                     comments[i][key] = req.body[key];
                 }
